@@ -19,8 +19,9 @@
   export default {
     methods: {
       unregister (registration) {
-        const user = this.$store.state.users.find(user => {
-          return user.id === registration.userId
+        console.log(registration)
+        const user = this.$store.state.users.find((user) => {
+          return user.id === registration.id
         })
 
         user.registered = false

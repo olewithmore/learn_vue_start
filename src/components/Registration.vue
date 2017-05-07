@@ -18,6 +18,8 @@
     },
     methods: {
       registerUser (user) {
+        this.$store.state.users[this.$store.state.users.indexOf(user)].registered = true
+        this.$store.getters.registrations.push(user)
       }
     }
   }

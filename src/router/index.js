@@ -5,6 +5,7 @@ import Router from 'vue-router'
 // import Home from '../Home'
 import User from '../Users'
 import Message from '../Message'
+import Hello from '../components/Hello'
 // import Introduce from '../components/Introduction'
 
 Vue.use(Router)
@@ -24,7 +25,7 @@ export default new Router({
     {
       path: '/test',
       name: 'test',
-      component: Message
+      component: Hello
     }
 
   ]
