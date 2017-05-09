@@ -27,14 +27,33 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
-    register (state, user) {
+    register (state, userId) {
       const date = new Date()
-      state.user.registered = true
-      this.$store.state.registrations.push({
-        userId: user.id,
+      const user = state.users.find((val) => {
+        return val.id === userId
+      })
+      user.registered = true
+      const registration = {
+        userId: userId,
         name: user.name,
         date: date.getMonth() + '/' + date.getDay()
+      }
+      state.registrations.push(registration)
+    },
+    unregister (state, userId) {
+      console.log(state.users)
+      const user = state.users.find((user) => {
+        console.log(user.id, userId.userId)
+        return user.id === userId.userId
       })
+      user.registered = false
+      const registration = state.registrations.find((registration) => {
+        return registration.id === userId
+      })
+
+      console.log('registration ::', registration)
+
+      state.registrations.splice(state.registrations.indexOf(registration), 1)
     }
   }
 

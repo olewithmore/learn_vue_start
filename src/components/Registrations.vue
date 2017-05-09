@@ -20,12 +20,10 @@
     methods: {
       unregister (registration) {
         console.log(registration)
-        const user = this.$store.state.users.find((user) => {
-          return user.id === registration.id
+        this.$store.commit({
+          type: 'unregister',
+          userId: registration.userId
         })
-
-        user.registered = false
-        this.$store.state.registrations.splice(this.$store.state.registrations.indexOf(registration), 1)
       }
     },
     computed: {
